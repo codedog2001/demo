@@ -9,13 +9,13 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 将链表每两个节点一组，然后组间反转
 func reverseEveryTwoNodes(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 	var group []*ListNode
 	curr := head
+	//两两一组
 	for curr != nil {
 		group = append(group, curr)
 		next := curr.Next
@@ -48,14 +48,7 @@ func reverseEveryTwoNodes(head *ListNode) *ListNode {
 	return newHead
 }
 
-func printList(head *ListNode) {
-	for head != nil {
-		fmt.Printf("%d -> ", head.Val)
-		head = head.Next
-	}
-	fmt.Println("nil")
-}
-func ReverseEveryNNodes(head *ListNode, N int) *ListNode {
+func reverseEveryNNodes(head *ListNode, N int) *ListNode {
 	if head == nil || head.Next == nil || N < 1 {
 		return head
 	}
@@ -85,6 +78,13 @@ func ReverseEveryNNodes(head *ListNode, N int) *ListNode {
 		}
 	}
 	return newHead
+}
+func printList(head *ListNode) {
+	for head != nil {
+		fmt.Printf("%d -> ", head.Val)
+		head = head.Next
+	}
+	fmt.Println("nil")
 }
 func main() {
 	// 测试用例1: 1->2->3->4->5
